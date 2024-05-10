@@ -1,17 +1,12 @@
 RSpec.describe VolumeSweeper::Comparer do
-  before(:all) do
-    $stderr = StringIO.new
-    $stdout = StringIO.new
-  end
-
   before do
     allow(VolumeSweeper::Utils::Log.instance).to receive(:msg) .and_return(nil)
   end
 
 
   let(:sample_bvs) {
-    ["ocid1.volume.oc1.me-jeddah-1.abvgkljrhrfqgtbwl2e4ijt34jnr2qqbjsmsklxshm3opneevpnrv2nlv6ca",
-     "ocid1.volume.oc1.me-jeddah-1.aifjknjbo4spunqd56x32sumtmijkgk3234kxxcdjtlyrkysu6u76e53vu2a",
+    ["ocid1.volume.oc1.me-jeddah-1.abvgkljrhrfqgtbwl2eodat4codfsqqbjsmsklxshm3opneevpnrv2nlv6ca",
+     "ocid1.volume.oc1.me-jeddah-1.abvgkljrckckunqd56x32sumtmijkgk3234kxxcdjtlyrkysu6u76e53vu2a",
      "ocid1.volume.oc1.me-jeddah-1.abvgkljrixub2zwxypa56b7hyjgqv7zcai3ex6dge6cp5ysi6au74ejqjupq"]
   }
 
@@ -19,14 +14,14 @@ RSpec.describe VolumeSweeper::Comparer do
     [{
       name: "csi-39f7c004-08f9-40f1-8560-9a5cfef552f3",
       status: "Bound",
-      volumeHandle: "ocid1.volume.oc1.me-jeddah-1.abvgkljrhrfqgtbwl2e4ijt34jnr2qqbjsmsklxshm3opneevpnrv2nlv6ca",
+      volumeHandle: "ocid1.volume.oc1.me-jeddah-1.abvgkljrhrfqgtbwl2eodat4codfsqqbjsmsklxshm3opneevpnrv2nlv6ca",
       pvc: "data-loki-compactor",
       namespace: "loki-distributed"
     },
     {
       name: "csi-5572f5f7-0120-45de-a857-46fbae0965d2",
       status: "Bound",
-      volumeHandle: "ocid1.volume.oc1.me-jeddah-1.aifjknjbo4spunqd56x32sumtmijkgk3234kxxcdjtlyrkysu6u76e53vu2a",
+      volumeHandle: "ocid1.volume.oc1.me-jeddah-1.abvgkljrckckunqd56x32sumtmijkgk3234kxxcdjtlyrkysu6u76e53vu2a",
       pvc: "data-loki-querier-0",
       namespace: "loki-distributed"
     }]

@@ -10,7 +10,7 @@ USER root
 WORKDIR /app
 COPY . .
 RUN gem install bundler
-RUN bundle install
+RUN bundle install --without development
 
 FROM build as runtime
 

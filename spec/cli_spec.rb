@@ -1,17 +1,19 @@
 RSpec.describe VolumeSweeper::Cli do
   before(:all) do
     ARGV.clear
-    $stderr = StringIO.new
-    $stdout = StringIO.new
+    assign_test_std_channels
   end
 
+  after(:all) do
+    unassign_test_std_channels
+  end
 
   let(:sample_options) {
     { cloud: 'oci', 'config-path': './tmp/config', mode: 'audit' }
   }
 
   it "prints the welcoming message" do
-    title = 'Volume Sweeper v1.0.0'
+    title = 'Volume Sweeper 1.0'
     expect { VolumeSweeper::Cli.run }.to output(%r{#{title}}).to_stdout
   end
 

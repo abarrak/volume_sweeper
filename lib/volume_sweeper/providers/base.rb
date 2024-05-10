@@ -2,8 +2,10 @@ module VolumeSweeper
   module Providers
 
     class Base
+      attr_reader :base_link
+
       def initialize **kwargs
-        @run_mode = kwargs[:mode] || :audit
+        @run_mode = kwargs[:mode]&.to_sym || :audit
         @config_location = kwargs[:config_path]
         @account_id = kwargs[:account_id]
         @compartment_id = kwargs[:account_id]

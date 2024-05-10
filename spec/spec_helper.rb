@@ -1,5 +1,6 @@
 require 'simplecov'
 require_relative 'support/coverage'
+require_relative 'support/std_helper'
 
 SimpleCovHelper.configure_formatter
 SimpleCov.start
@@ -16,4 +17,8 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include Support::StdHelper
+
+  ENV["RACK_ENV"] = "test"
 end

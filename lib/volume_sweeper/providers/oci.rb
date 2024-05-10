@@ -19,6 +19,7 @@ module VolumeSweeper
       def initialize config_path: nil, region: nil, mode: :audit, **kwargs
         super
         @region ||= DEFAULT_REGION
+        @base_link = "https://console.me-jeddah-1.oraclecloud.com/block-storage/volumes"
         validate_attrs
       end
 
@@ -60,7 +61,7 @@ module VolumeSweeper
         end || []
 
         @log.msg "oci: found #{result.size} unattached block volumes."
-        result
+        [volumes.size, result]
       end
 
       def delete_block_volumes ids_list
@@ -106,8 +107,8 @@ module VolumeSweeper
         @log.msg err, level: :error
         raise if err.status_code != 304
       rescue OCI::Errors::NetworkError,
-              OCI::Errors::ResponseParsingError,
-              OCI::Errors
+             OCI::Errors::ResponseParsingError,
+             StandardError => err
         @log.msg err, level: :error
         raise
       end

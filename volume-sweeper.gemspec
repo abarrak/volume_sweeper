@@ -33,9 +33,12 @@ Gem::Specification.new do |spec|
   spec.add_dependency "kubeclient", "~> 4.11"
   spec.add_dependency "prometheus-client", "~> 4.2"
   spec.add_dependency "activesupport", "~> 7.1"
+  spec.add_dependency "mail", "~> 2.8"
+  spec.add_dependency "network-client", "~> 3"
   spec.add_development_dependency "rspec", "~> 3.2"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "simplecov", "0.22.0"
   spec.add_development_dependency "simplecov-cobertura", "~> 2.1.0"
+  spec.add_development_dependency "mailcatcher"
   spec.add_development_dependency "standard"
 end

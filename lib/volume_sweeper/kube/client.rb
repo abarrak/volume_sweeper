@@ -28,7 +28,7 @@ module VolumeSweeper
     #
     class Client
       def initialize **kwargs
-        @run_mode = kwargs[:mode] || :audit
+        @run_mode = kwargs[:mode]&.to_sym || :audit
         @api_url = kwargs[:kube_api_url]
         @api_token = kwargs[:kube_api_token]
         @api_ca_path = kwargs[:kube_api_ca_path]
