@@ -25,7 +25,7 @@ module VolumeSweeper
 
       def scan_block_volumes
         volumes = Array.new
-        opts = { compartment_id: @compartment_id, limit: DEFAULT_PAGE_SIZE }
+        opts = { compartment_id: @compartment_id, limit: DEFAULT_PAGE_SIZE, lifecycle_state: 'AVAILABLE' }
 
         run_api_call do |config|
           api = OCI::Core::BlockstorageClient.new config: config, region: @region
