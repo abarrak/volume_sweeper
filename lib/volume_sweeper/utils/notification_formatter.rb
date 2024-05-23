@@ -22,13 +22,18 @@ module VolumeSweeper
             * Unused volumes: #{unused_list&.count || 0}<br>
           EOD
         else
-          notice = @run_mode == :delete ? "scheduled for deletion!" : "eligibile for deletion."
+          notice = @run_mode == :delete ? "scheduled for deletion" : "eligibile for deletion"
           ERB.new(
             <<~HTML
-              Found the following volumes with no instance bound or K8S PV relation.<br>
+              The environment is scanned.<br>
+              * Active volumes: #{active_count}<br>
+              * Unused volumes: #{unused_list&.count || 0}<br>
+
+              Found the following volumes without instance bound or K8S PV relation.<br>
+              <u>(#{notice}):</u> <br>
               <ul style="color: #400707">
                 <% unused_list.each do |vol| %>
-                <li>volume: <a href="#{@provider_base_url}/<%= vol %>"><%= vol %></a> is #{notice}.</li>
+                <li>volume: <a href="#{@provider_base_url}/<%= vol %>"><%= vol %></a>.</li>
                 <% end %>
               </ul>
             HTML
