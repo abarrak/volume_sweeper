@@ -1,4 +1,5 @@
 # Volume Sweeper
+[![CI (tests)](https://github.com/abarrak/volume_sweeper/actions/workflows/ci.yml/badge.svg)](https://github.com/abarrak/volume_sweeper/actions/workflows/ci.yml) [![Gem Version](https://badge.fury.io/rb/volume_sweeper.svg)](https://badge.fury.io/rb/volume_sweeper)
 
 A tool to scan and clean cloud infrastruture for unattached block volumes without kubernetes clusters persistent volumes.
 
