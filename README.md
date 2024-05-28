@@ -1,4 +1,4 @@
-# VolumeSweeper
+# Volume Sweeper
 
 A tool to scan and clean cloud infrastruture for unattached block volumes without kubernetes clusters persistent volumes.
 
