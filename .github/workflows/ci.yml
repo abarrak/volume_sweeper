@@ -24,6 +24,8 @@ jobs:
       - name: Install dependencies
         run: bundle install
       - name: run tests suite
-        run: rspec
+        run: |
+          rspec
+          export RSPEC_RESULT=$?
       - name: push coverage results
-        run: ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+        run: ./cc-test-reporter after-build --exit-code $RSPEC_RESULT

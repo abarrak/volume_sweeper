@@ -1,5 +1,6 @@
 # Volume Sweeper
-[![CI (tests)](https://github.com/abarrak/volume_sweeper/actions/workflows/ci.yml/badge.svg)](https://github.com/abarrak/volume_sweeper/actions/workflows/ci.yml) [![Gem Version](https://badge.fury.io/rb/volume_sweeper.svg)](https://badge.fury.io/rb/volume_sweeper)
+[![CI (tests)](https://github.com/abarrak/volume_sweeper/actions/workflows/ci.yml/badge.svg)](https://github.com/abarrak/volume_sweeper/actions/workflows/ci.yml) [![Gem Version](https://badge.fury.io/rb/volume_sweeper.svg)](https://badge.fury.io/rb/volume_sweeper) [![Test Coverage](https://api.codeclimate.com/v1/badges/b9d24a336e67236937dd/test_coverage)](https://codeclimate.com/github/abarrak/volume_sweeper/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/b9d24a336e67236937dd/maintainability)](https://codeclimate.com/github/abarrak/volume_sweeper/maintainability) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 A tool to scan and clean cloud infrastruture for unattached block volumes without kubernetes clusters persistent volumes.
 
