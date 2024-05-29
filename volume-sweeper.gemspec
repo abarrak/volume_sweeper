@@ -1,21 +1,23 @@
 require_relative "lib/volume_sweeper/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "volume_sweeper"
+  spec.name    = "volume_sweeper"
   spec.version = VolumeSweeper::VERSION
+  spec.date    = Date.today.to_s
   spec.authors = ["Abdullah Barrak"]
-  spec.email = ["abdullah@abarrak.com"]
+  spec.email   = ["abdullah@abarrak.com"]
 
-  spec.summary = "A CLI for block volumes sweeping and cleanup"
+  spec.summary     = "A CLI for block volumes sweeping and cleanup"
   spec.description = "This is a scanning tool for cloud infrastructure cross referenced with related clusters. "
-  spec.homepage = "https://github.com/abarrak/volume_sweeper"
-  spec.license = "MIT"
+  spec.homepage    = "https://github.com/abarrak/volume_sweeper"
+  spec.license     = "MIT"
 
   spec.required_ruby_version = ">= 3.1"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/abarrak/volume_sweeper"
-  spec.metadata["changelog_uri"] = "https://github.com/abarrak/volume_sweeper/releases"
+  spec.metadata["homepage_uri"]      = spec.homepage
+  spec.metadata["source_code_uri"]   = "https://github.com/abarrak/volume_sweeper"
+  spec.metadata["changelog_uri"]     = "https://github.com/abarrak/volume_sweeper/releases"
+  spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/volume_sweeper"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -24,9 +26,9 @@ Gem::Specification.new do |spec|
       (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
     end
   end
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.bindir         = "exe"
+  spec.executables    = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  spec.require_paths  = ["lib"]
 
   spec.add_dependency "cowsay", "~> 0.3.0"
   spec.add_dependency "oci", "~> 2.20"
