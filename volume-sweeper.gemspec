@@ -1,3 +1,4 @@
+require "date"
 require_relative "lib/volume_sweeper/version"
 
 Gem::Specification.new do |spec|
