@@ -12,7 +12,7 @@ services:
 variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
-  OCI_IMAGE_NAME: volume-sweeper
+  IMAGE_NAME: volume-sweeper
 
 testing:
   stage: test
@@ -40,17 +40,17 @@ testing:
     - when: never
   interruptible: true
 
-build_image_oci:
+build_image:
   image: docker:20.10.21
   stage: build
   variables:
-    OCIR_REGISTRY: jed.ocir.io/axbyjduhp8wx
-    IMAGE_NAME: ${OCIR_REGISTRY}/${OCI_IMAGE_NAME}
+    REGISTRY_HOST: REGISTRY
+    IMAGE_NAME: ${REGISTRY_HOST}/${IMAGE_NAME}
     IMAGE_TAG: ${CI_COMMIT_SHORT_SHA}
     IMAGE_DIR: ./
   script:
     - apk update
-    - echo "${OCI_REGISTRY_TOKEN}" | base64 -d | docker login --username ${OCI_REGISTRY_USER} --password-stdin ${OCIR_REGISTRY}
+    - echo "${REGISTRY_TOKEN}" | base64 -d | docker login --username ${REGISTRY_USER} --password-stdin ${REGISTRY_HOST}
     - docker build --tag ${IMAGE_NAME}:${IMAGE_TAG} $IMAGE_DIR
     - docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest
     - docker push ${IMAGE_NAME}:${IMAGE_TAG}
