@@ -27,4 +27,4 @@ jobs:
         run: |
           export CC_TEST_REPORTER_ID=${{ secrets.CC_TEST_REPORTER_ID }}
           rspec
-          ./cc-test-reporter after-build --exit-code $?
+          ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
