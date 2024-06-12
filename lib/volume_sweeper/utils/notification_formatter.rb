@@ -27,13 +27,13 @@ module VolumeSweeper
             <<~HTML
               The environment is scanned.<br>
               * Active volumes: #{active_count}<br>
-              * Unused volumes: #{unused_list&.count || 0}<br>
+              * Unused volumes: #{unused_list&.count || 0}<br><br>
 
               Found the following volumes without instance bound or K8S PV relation.<br>
-              <u>(#{notice}):</u> <br>
+              <u>(#{notice}).</u> <br>
               <ul style="color: #400707">
                 <% unused_list.each do |vol| %>
-                <li>volume: <a href="#{@provider_base_url}/<%= vol %>"><%= vol %></a>.</li>
+                <li><a href="#{@provider_base_url}/<%= vol %>"><%= vol %></a>.</li>
                 <% end %>
               </ul>
             HTML
