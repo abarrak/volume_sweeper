@@ -17,6 +17,7 @@ module VolumeSweeper
       mode = opts.mode&.to_sym
       options = {
         config_path: opts.config_path,
+        creds_path: opts.creds_path,
         account_id: opts.account_id,
         region: opts.region,
         mode: opts.mode,

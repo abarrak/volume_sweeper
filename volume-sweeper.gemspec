@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Abdullah Barrak"]
   spec.email   = ["abdullah@abarrak.com"]
 
-  spec.summary     = "A CLI for block volumes sweeping and cleanup"
-  spec.description = "This is a scanning tool for cloud infrastructure cross referenced with related clusters. "
+  spec.summary     = "A CLI for kubernetes volumes cleanup in multiple cloud provides."
+  spec.description = "This is a scanning tool for unused block volumes in kubernetes clusters (AWS, GCP, OCI)."
   spec.homepage    = "https://github.com/abarrak/volume_sweeper"
   spec.license     = "MIT"
 
@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths  = ["lib"]
 
   spec.add_dependency "cowsay", "~> 0.3.0"
+  spec.add_dependency "aws-sdk-ec2", "~> 1.498"
   spec.add_dependency "oci", "~> 2.20"
   spec.add_dependency "kubeclient", "~> 4.11"
   spec.add_dependency "prometheus-client", "~> 4.2"

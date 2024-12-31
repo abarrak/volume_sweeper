@@ -29,6 +29,7 @@ module VolumeSweeper
           opt.on('-m', '--mode [MODE]', 'The run modes: either audit, or delete.') { |o| options.mode = o }
           opt.on('-c', '--cloud [CLOUD]', 'Supported clouds: aws, oci.') { |o| options.cloud = o }
           opt.on('-f', '--config-path [PATH]', 'The file location for cloud config file') { |o| options.config_path = o }
+          opt.on('-s', '--creds-path [PATH]', 'The file location for cloud crednetials file') { |o| options.creds_path = o }
           opt.on('-r', '--region [REGION]', 'The provider region of the account.') { |o| options.region = o }
           opt.on('-a', '--account-id [Id]', 'The account or compartment Id.') { |o| options.account_id = o }
           opt.on('-d', '--released-since [DAYS]', 'Volumes threshold duration') { |o| options.released_in_days = o }

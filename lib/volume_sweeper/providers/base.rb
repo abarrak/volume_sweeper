@@ -7,6 +7,7 @@ module VolumeSweeper
       def initialize **kwargs
         @run_mode = kwargs[:mode]&.to_sym || :audit
         @config_location = kwargs[:config_path]
+        @creds_location = kwargs[:creds_location]
         @account_id = kwargs[:account_id]
         @compartment_id = kwargs[:account_id]
         @region = kwargs[:region]
