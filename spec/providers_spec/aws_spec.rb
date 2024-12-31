@@ -33,5 +33,9 @@ RSpec.describe VolumeSweeper::Providers::Aws do
       expect_any_instance_of(::Aws::EC2::Client).to receive(:describe_volumes)
       expect(subject.scan_block_volumes).to eq([0, []])
     end
+
+    it "sets the base console link" do
+      expect(subject.base_link).to eq "https://us-west-1.console.aws.amazon.com/ec2/home?region=us-west-1#VolumeDetails:volumeId="
+    end
   end
 end
