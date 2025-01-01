@@ -7,7 +7,7 @@ A tool to scan and clean cloud infrastruture for unattached block volumes withou
 ## Supported Clouds
 
 - [x] OCI
-- [ ] AWS.
+- [x] AWS.
 - [ ] GCP.
 
 ## Supported Kubernetes
@@ -31,13 +31,19 @@ $ gem install volume_sweeper
 To scan and generate a report:
 
 ```bash
-volume_sweeper --account-id <ID> --cloud aws|oci
+volume_sweeper --account-id <ID> --cloud aws|oci --region <region>
 ```
 
 To apply deletion for unattached block volumes:
 
 ```bash
 volume_sweeper --mode delete
+```
+
+For all options:
+
+```bash
+volume_sweeper -h
 ```
 
 ## Contributing

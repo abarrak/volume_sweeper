@@ -25,17 +25,19 @@ module VolumeSweeper
 
       def scan_block_volumes
         volumes = Array.new
-        # { filters: [ { name: "status", values: ["available"] } ] }
-        opts = { }
+        next_token = nil
+        opts = { max_results: 200 }
 
         run_api_call do |client|
-          pages = client.describe_volumes opts
-          begin
-            pages&.volumes&.map do |v|
+          loop do
+            response = client.describe_volumes opts.merge(next_token: next_token)
+            response&.volumes&.map do |v|
               volumes << v.to_hash.compact.slice(*VOLUME_ATTRS).transform_keys(volume_id: :id)
             end
-            sleep 1
-          end until pages.nil? || pages&.last_page?
+            break if response.nil? || response.next_token.nil?
+            next_token = response.next_token
+            sleep 2
+          end
           @log.msg "aws: collected #{volumes.size} block volumes from the account."
         end
 
@@ -43,7 +45,7 @@ module VolumeSweeper
         result = volumes&.reject { |v| v[:state] != 'available' || v[:attachments]&.count > 0 } || []
 
         @log.msg "aws: found #{result.count} unattached block volumes."
-        [result.size, result]
+        [volumes.size, result]
       end
 
       def delete_block_volumes ids_list
