@@ -19,7 +19,7 @@ module VolumeSweeper
       def initialize config_path: nil, region: nil, mode: :audit, **kwargs
         super
         @region ||= DEFAULT_REGION
-        @base_link = "https://cloud.oracle.com/block-storage/volumes"
+        @base_link = "https://cloud.oracle.com/block-storage/volumes/"
         validate_attrs
       end
 

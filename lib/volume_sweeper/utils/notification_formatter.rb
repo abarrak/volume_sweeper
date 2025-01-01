@@ -33,7 +33,7 @@ module VolumeSweeper
               <u>(#{notice}).</u> <br>
               <ul style="color: #400707">
                 <% unused_list.each do |vol| %>
-                <li><a href="#{@provider_base_url}/<%= vol %>"><%= vol %></a>.</li>
+                <li><a href="#{@provider_base_url}<%= vol %>"><%= vol %></a>.</li>
                 <% end %>
               </ul>
             HTML
