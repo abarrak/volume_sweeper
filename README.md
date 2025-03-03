@@ -11,7 +11,6 @@ A tool to scan and clean cloud infrastruture for unattached block volumes withou
 * [Documentation](#documentation)
   + [Design](#design)
   + [Algorithm](#algorithm)
-  + [Supported Providers](#supported-providers)
   + [Deployment](#deployment)
   + [Code](#code)
   + [Limitations](#limitations)
