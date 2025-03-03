@@ -60,7 +60,7 @@ For all options:
 volume_sweeper -h
 ```
 
-<img src="https://github.com/user-attachments/assets/0f73d0c9-b419-4c4a-ae07-405cf693928c" width="60%" />
+<img src="https://github.com/user-attachments/assets/0f73d0c9-b419-4c4a-ae07-405cf693928c" width="100%" />
 
 --- 
 ## Documentation
@@ -69,7 +69,7 @@ This tool tracks down unused block volumes in cloud accounts to clean once certa
 
 ### Design
 
-<img src="https://github.com/user-attachments/assets/fd4eb825-68e8-4155-bea4-b6d9890ca9e3" width="50%" />
+<img src="https://github.com/user-attachments/assets/fd4eb825-68e8-4155-bea4-b6d9890ca9e3" width="80%" />
 
 ### Algorithm
 
@@ -82,12 +82,6 @@ FOR each_cluster IN oci|aws:
        DEL [C] result
 END
 ```
-
-### Supported Providers
-
-- [x] AWS.
-- [x] OCI.
-- [x] GCP.
 
 ### Deployment
 
